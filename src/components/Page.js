@@ -13,7 +13,14 @@ const Page = () => {
             }
             id="themed-page"
         >
-            <p id="themed-text-container">lorem ipsum dolor iterit n stuff</p>
+            <p
+                className={
+                    context.globalThemeIsLight ? "txt-light" : "txt-dark"
+                }
+                id="themed-text-container"
+            >
+                lorem ipsum dolor iterit n stuff
+            </p>
             <button
                 className={
                     context.globalThemeIsLight

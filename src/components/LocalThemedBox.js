@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ThemeToggleButton } from "./ThemeToggleButton";
+import { ThemeContext } from "./ThemeProvider";
 const LocalThemedBox = () => {
-    const handleChange = (e) => {
-        console.log("this will change the local styles");
-    };
+    const context = useContext(ThemeContext);
+
     return (
         <div
             style={{
@@ -12,12 +12,15 @@ const LocalThemedBox = () => {
                 border: "2px solid green",
             }}
             id="local-themed-box"
+            className={context.localThemeIsLight ? "bg-light" : "bg-dark"}
         >
             {/* Write code below this line */}
-            <p>this is local theme box</p>
+            <p className={context.localThemeIsLight ? "txt-light" : "txt-dark"}>
+                this is local theme box
+            </p>
             <ThemeToggleButton
                 btnTxt={"this is local button"}
-                handleChange={handleChange}
+                themeLevel="local"
             />
         </div>
     );
