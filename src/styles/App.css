@@ -1,30 +1,34 @@
-.bg-dark{
-    background-color: #1F1D36;
+.bg-dark {
+    background-color: #1f1d36;
 }
 
-.bg-light{
-    background-color: #EEEEEE;
+.bg-light {
+    background-color: #eeeeee;
 }
 
-.txt-light{
+.txt-light {
     color: #292929;
 }
 
-.txt-dark{
-    color:#f1f1f1;
+.txt-dark {
+    color: #f1f1f1;
 }
-.btn{
+.btn {
     padding: 1rem 1.33rem;
     border: none;
     border-radius: 8px;
 }
-.btn-dark{
+.btn-dark {
     background-color: #005f5f;
 }
-.btn-light{
-    background-color: #88E0EF;
+.btn-light {
+    background-color: #88e0ef;
 }
-.container{
+.container {
     width: 500px;
     height: 500px;
+}
+
+button {
+    outline: rgb(222, 173, 173) 2px solid;
 }

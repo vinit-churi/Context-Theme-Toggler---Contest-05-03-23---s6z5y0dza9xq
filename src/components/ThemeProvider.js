@@ -1,13 +1,15 @@
-import React from 'react';
-
-const ThemeContext = React.createContext()
-const ThemeProvider = (props) =>{
-
+import React, { createContext, useState } from "react";
+const ThemeContext = createContext();
+const ThemeProvider = (props) => {
+    const [state, setState] = useState({
+        globalThemeIsLight: true,
+        localThemeIsLight: true,
+    });
     return (
-        <React.Fragment>
+        <ThemeContext.Provider value={{ ...state, setState }}>
+            {props.children}
+        </ThemeContext.Provider>
+    );
+};
 
-        </React.Fragment>
-    )
-}
-
-export {ThemeProvider,ThemeContext}
+export { ThemeProvider, ThemeContext };
