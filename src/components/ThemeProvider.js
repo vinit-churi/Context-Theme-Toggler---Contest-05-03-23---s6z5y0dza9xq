@@ -1,18 +1,12 @@
-import React, { useState } from "react";
-
-const ThemeContext = React.createContext();
+import React, { createContext, useState } from "react";
+const ThemeContext = createContext();
 const ThemeProvider = (props) => {
     const [state, setState] = useState({
-        theme: "light",
+        globalThemeIsLight: true,
+        localThemeIsLight: true,
     });
-    const updateContext = (key, value) => {
-        setState({
-            ...state,
-            [key]: value,
-        });
-    };
     return (
-        <ThemeContext.Provider value={{ ...state, updateContext }}>
+        <ThemeContext.Provider value={{ ...state, setState }}>
             {props.children}
         </ThemeContext.Provider>
     );

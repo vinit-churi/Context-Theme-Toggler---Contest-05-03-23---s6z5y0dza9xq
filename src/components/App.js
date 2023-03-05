@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../styles/App.css";
-import { ThemeProvider } from "./ThemeProvider";
+import { ThemeProvider, ThemeContext } from "./ThemeProvider";
 import { ThemeToggleButton } from "./ThemeToggleButton";
 import { Page } from "./Page";
 const App = () => {
@@ -8,6 +8,10 @@ const App = () => {
         <div id="main">
             <ThemeProvider>
                 <Page />
+                <ThemeToggleButton
+                    btnTxt={"this is global button"}
+                    themeLevel="global"
+                />
             </ThemeProvider>
         </div>
     );

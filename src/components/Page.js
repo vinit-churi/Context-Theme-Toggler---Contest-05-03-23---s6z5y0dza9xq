@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { LocalThemedBox } from "./LocalThemedBox";
 import { ThemeContext } from "./ThemeProvider";
-import { ThemeToggleButton } from "./ThemeToggleButton";
+
 const Page = () => {
-    const myLocalThemeContext = useContext(ThemeContext);
+    const context = useContext(ThemeContext);
     return (
         <div
             className={
-                myLocalThemeContext.theme === "light"
+                context.globalThemeIsLight
                     ? "bg-light container"
                     : "bg-dark container"
             }
@@ -15,15 +15,22 @@ const Page = () => {
         >
             <p
                 className={
-                    myLocalThemeContext.theme === "light"
-                        ? "txt-light"
-                        : "txt-dark"
+                    context.globalThemeIsLight ? "txt-light" : "txt-dark"
                 }
                 id="themed-text-container"
             >
                 lorem ipsum dolor iterit n stuff
             </p>
-            <ThemeToggleButton />
+            <button
+                className={
+                    context.globalThemeIsLight
+                        ? "btn btn-light"
+                        : "btn btn-dark"
+                }
+                id="themed-button"
+            >
+                Themed Button
+            </button>
             <LocalThemedBox />
         </div>
     );

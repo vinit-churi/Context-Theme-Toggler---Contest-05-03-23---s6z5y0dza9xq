@@ -1,19 +1,27 @@
 import React, { useContext } from "react";
+import { ThemeToggleButton } from "./ThemeToggleButton";
 import { ThemeContext } from "./ThemeProvider";
-
 const LocalThemedBox = () => {
-    const themeContext = useContext(ThemeContext);
+    const context = useContext(ThemeContext);
+
     return (
         <div
-            className={themeContext.theme === "light" ? "bg-light" : "bg-dark"}
             style={{
                 width: "200px",
                 height: "200px",
                 border: "2px solid green",
             }}
             id="local-themed-box"
+            className={context.localThemeIsLight ? "bg-light" : "bg-dark"}
         >
             {/* Write code below this line */}
+            <p className={context.localThemeIsLight ? "txt-light" : "txt-dark"}>
+                this is local theme box
+            </p>
+            <ThemeToggleButton
+                btnTxt={"this is local button"}
+                themeLevel="local"
+            />
         </div>
     );
 };
